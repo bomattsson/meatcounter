@@ -8,4 +8,16 @@ feature 'meats' do
     end
   end
 
+  context 'meats can be added' do
+    before do
+      Meat.create(name: 'Fish')
+    end
+
+    scenario 'display meats' do
+      visit '/meats'
+      expect(page).to have_content('Fish')
+      expect(page).not_to have_content('Juice')
+    end
+  end
+
 end

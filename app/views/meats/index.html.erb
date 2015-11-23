@@ -1,2 +1,9 @@
-No meats to choose from !
+<% if @meats.any? %>
+    <% @meats.each do |meat| %>
+        <h2><%= meat.name %></h2>
+    <% end %>
+<% else %>
+    <h1> No meats yet</h1>
+<% end %>
+
 <a href='#'>Chicken</a>

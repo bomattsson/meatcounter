@@ -1,0 +1,4 @@
+<p><%= @meat.name %></p>
+<%= link_to "Edit #{@meat.name}", edit_meat_path(@meat) %>
+<%= link_to "Delete #{@meat.name}", meat_path(@meat), method: :delete %>
+

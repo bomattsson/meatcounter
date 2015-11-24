@@ -1,9 +1,10 @@
 <% if @meats.any? %>
     <% @meats.each do |meat| %>
-        <h2><%= meat.name %></h2>
+        <h2><%= link_to meat.name, meat_path(meat), class: 'center' %></h2>
+
     <% end %>
 <% else %>
     <h1> No meats yet</h1>
 <% end %>
 
-<a href='#'>Chicken</a>
+<%= link_to 'Add new type of meat', new_meat_path %>

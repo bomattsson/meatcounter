@@ -1,0 +1,5 @@
+<%= form_for @meat do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, :autofocus => true %>
+<%= f.submit 'Create type of meat', class: 'button round' %>
+<% end %>

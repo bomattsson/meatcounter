@@ -1,4 +1,8 @@
 class MeatsController < ApplicationController
+  #impressionist :actions => [:index]
+
+  before_action :authenticate_user!, :except => [:index]
+
   def index
     @meats = Meat.all
   end
@@ -31,6 +35,12 @@ class MeatsController < ApplicationController
     @meat.destroy
     flash[:notice] = "#{@meat.name} deleted"
     redirect_to meats_path
+  end
+
+  def weekview
+    @meats = current_user.meats
+
+    render 'weekview'
   end
 
   private

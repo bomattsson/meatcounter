@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
- resources :meats
+  devise_for :users
+  resources :meats
   root to: 'meats#index'
 end

@@ -1,10 +1,21 @@
 <% if @meats.any? %>
+    <br><br><B><%= Time.now.strftime("%a %d %b, %Y") %></B>
+    <% if (Time.now.strftime("%H") < ("11")) %>
+        Breakfast
+        <% elsif (Time.now.strftime("%H") < ("15")) %>
+        Lunch
+        <% else %>
+        Dinner
+        <% end %>
     <% @meats.each do |meat| %>
         <h2><%= link_to meat.name, meat_path(meat), class: 'center' %></h2>
-
+        <%= "#{meat.impressionist_count} views so far!" %>
     <% end %>
 <% else %>
     <h1> No meats yet</h1>
 <% end %>
 
-<%= link_to 'Add new type of meat', new_meat_path %>
+
+<br><br>
+<%= link_to 'Add new type of meat', new_meat_path %><br>
+<%= link_to 'See weekly overview' %>

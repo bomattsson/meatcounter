@@ -16,6 +16,7 @@ gem 'impressionist'
 group :development, :test do
   gem 'byebug'
   gem 'timecop'
+  gem 'rails_layout'
 end
 
 group :development do

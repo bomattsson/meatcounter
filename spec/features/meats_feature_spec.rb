@@ -4,7 +4,7 @@ feature 'meats' do
   context 'no meats on page' do
     scenario 'should display a link for adding types of meat' do
       visit '/meats'
-      expect(page).to have_link 'Add new type of meat'
+      expect(page).to have_content 'No meats yet'
     end
   end
 
@@ -46,7 +46,7 @@ feature 'meats' do
 
     context 'creating types of meats' do
       scenario 'prompts users to fill out a form, then displays the new sort' do
-        click_link 'Add new type of meat'
+        click_link 'Add new meat'
         fill_in "Name", with: 'Venison'
         click_button 'Create type of meat'
         expect(page).to have_content 'Venison'
@@ -87,6 +87,15 @@ feature 'meats' do
         visit meat_path(@venison)
         click_link 'Delete Venison'
         expect(page).to have_content 'Venison deleted'
+      end
+    end
+
+    context 'displays a weekly view' do
+      before { @venison = Meat.create name: 'Venison'}
+
+      scenario 'lets a uses see a view of this week\'s meat' do
+      visit '/meats/weekview'
+      expect(page).to have_content 'Venison'
       end
     end
   end

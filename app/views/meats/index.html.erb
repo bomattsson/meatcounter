@@ -1,21 +1,25 @@
-<% if @meats.any? %>
-    <br><br><B><%= Time.now.strftime("%a %d %b, %Y") %></B>
-    <% if (Time.now.strftime("%H") < ("11")) %>
-        Breakfast
-        <% elsif (Time.now.strftime("%H") < ("15")) %>
-        Lunch
-        <% else %>
-        Dinner
-        <% end %>
-    <% @meats.each do |meat| %>
-        <h2><%= link_to meat.name, meat_path(meat), class: 'center' %></h2>
-        <%= "#{meat.impressionist_count} views so far!" %>
-    <% end %>
-<% else %>
-    <h1> No meats yet</h1>
-<% end %>
+<div class="row">
+  <div class="large-8 columns">
+    <div class="callout panel">
+
+      <% if @meats.any? %>
+          <br><br><B><%= Time.now.strftime("%a %d %b, %Y") %></B>
+          <% if (Time.now.strftime("%H") < ("11")) %>
+              Breakfast
+          <% elsif (Time.now.strftime("%H") < ("15")) %>
+              Lunch
+          <% else %>
+              Dinner
+          <% end %>
+          <% @meats.each do |meat| %>
+              <h2><%= link_to meat.name, meat_path(meat), class: 'center' %></h2>
+              <%= "#{meat.impressionist_count} views so far!" %>
+          <% end %>
+      <% else %>
+          <h1> No meats yet</h1>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<br><br>
-<%= link_to 'Add new type of meat', new_meat_path %><br>
-<%= link_to 'See weekly overview' %>

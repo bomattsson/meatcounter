@@ -38,9 +38,8 @@ class MeatsController < ApplicationController
   end
 
   def weekview
-    @meats = current_user.meats
-
-    render 'weekview'
+    @meats = Meat.all
+    render :weekview
   end
 
   private

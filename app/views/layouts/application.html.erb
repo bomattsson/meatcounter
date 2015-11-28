@@ -57,8 +57,20 @@
 
 </head>
 
-<%= notice %>
-<%= yield %>
+
+
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <p class="notice" id="notification"><%= notice %></p>
+
+    <p class="alert" id="notification"><%= alert %></p>
+    <%= yield %>
+    <%= notice %>
+
+  </div>
+</div>
+
+
 
 <footer class="footer">
   <div class="row">

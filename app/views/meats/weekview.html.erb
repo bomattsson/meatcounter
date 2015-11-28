@@ -7,9 +7,11 @@
           <th>Breakfast</th>
           <th>Lunch</th>
           <th>Dinner</th>
-          <th>Any extras?</th>
+          <th>Extras?</th>
         </tr>
         <tr>
+          <td><%= Time.now.strftime('%u') %></td>
+          <td><%= @meats %></td>
         </tr>
       </table>
     </div>

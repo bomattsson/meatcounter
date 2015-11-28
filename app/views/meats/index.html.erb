@@ -3,16 +3,16 @@
     <div class="callout panel">
 
       <% if @meats.any? %>
-          <br><br><B><%= Time.now.strftime("%a %d %b, %Y") %></B>
+          <br><br><B><%= Time.now.strftime("%a %d %b, %Y") %></B></b><br>
           <% if (Time.now.strftime("%H") < ("11")) %>
               Breakfast
           <% elsif (Time.now.strftime("%H") < ("15")) %>
               Lunch
           <% else %>
               Dinner
-          <% end %>
+          <% end %><br><br>
           <% @meats.each do |meat| %>
-              <h2><%= link_to meat.name, meat_path(meat), class: 'center' %></h2>
+              <h6><b><%= link_to meat.name, meat_path(meat), class: 'center' %></b></h6>
               <%= "#{meat.impressionist_count} views so far!" %>
           <% end %>
       <% else %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'meats/weekview', controller: :meats, action: :weekview, as: :weekview
 
   resources :meats do
+    resources :meals
 
   end
   root to: 'meats#index'

@@ -41,7 +41,7 @@ feature 'meats' do
       click_link('Sign in')
       fill_in('Email', with: 'bo@cint.com')
       fill_in('Password', with: '12345678')
-      click_button('Log in')
+      click_button('Sign in')
     end
 
     context 'creating types of meats' do
@@ -91,11 +91,10 @@ feature 'meats' do
     end
 
     context 'displays a weekly view' do
-      before { @venison = Meat.create name: 'Venison'}
 
       scenario 'lets a uses see a view of this week\'s meat' do
       visit '/meats/weekview'
-      expect(page).to have_content 'Venison'
+      expect(page).to have_content 'Day of week'
       end
     end
   end

@@ -1,7 +1,8 @@
 class Meat < ActiveRecord::Base
-  has_many :counts
+
   validates :name, uniqueness: {message: "Name already exists"}
   belongs_to :user
+  has_many :meals
   is_impressionable
 
 end

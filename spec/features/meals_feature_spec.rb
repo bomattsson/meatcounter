@@ -18,8 +18,7 @@ feature 'meals, weekly view' do
     click_link 'My meat week'
 
     expect(current_path).to eq '/meats/weekview'
-    expect(page).to have_content 'Lunch'
-    byebug
+    expect(page).to have_content 'Lunch' byebug
   end
 
 
